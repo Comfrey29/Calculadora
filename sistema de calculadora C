@@ -1,0 +1,106 @@
+
+
+/******************************************************************************
+
+Welcome to GDB Online.
+  GDB online is an online compiler and debugger tool for C, C++, Python, PHP, Ruby, 
+  C#, OCaml, VB, Perl, Swift, Prolog, Javascript, Pascal, COBOL, HTML, CSS, JS
+  Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+// Funció per netejar la pantalla
+void netejarPantalla() {
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
+}
+
+// Funció per mostrar el menú
+void mostrarMenu() {
+    printf("\nCalculadora Avanzada\n");
+    printf("1. Suma\n");
+    printf("2. Resta\n");
+    printf("3. Multiplicacion\n");
+    printf("4. Division\n");
+    printf("5. Potencia\n");
+    printf("6. Arrel quadrada\n");
+    printf("0. Salir\n");
+    printf("Seleccione una opcion: ");
+}
+
+int main() {
+    int opcio;
+    float num1, num2, resultat;
+
+    do {
+        netejarPantalla();
+        mostrarMenu();
+        scanf("%d", &opcio);
+
+        switch(opcio) {
+            case 1: // Suma
+                printf("Introduce dos numeros: ");
+                scanf("%f %f", &num1, &num2);
+                resultat = num1 + num2;
+                printf("Resultado: %.2f\n", resultat);
+                break;
+            case 2: // Resta
+                printf("Introduce dos numeros: ");
+                scanf("%f %f", &num1, &num2);
+                resultat = num1 - num2;
+                printf("Resultado: %.2f\n", resultat);
+                break;
+            case 3: // Multiplicació
+                printf("Introduce dos numeros: ");
+                scanf("%f %f", &num1, &num2);
+                resultat = num1 * num2;
+                printf("Resultado: %.2f\n", resultat);
+                break;
+            case 4: // Divisió
+                printf("Introduce dos numeros: ");
+                scanf("%f %f", &num1, &num2);
+                if (num2 != 0) {
+                    resultat = num1 / num2;
+                    printf("Resultado: %.2f\n", resultat);
+                } else {
+                    printf("Error: No se puede dividir entre cero.\n");
+                }
+                break;
+            case 5: // Potència
+                printf("Introduce la base y el exponente: ");
+                scanf("%f %f", &num1, &num2);
+                resultat = pow(num1, num2);
+                printf("Resultado: %.2f\n", resultat);
+                break;
+            case 6: // Arrel quadrada
+                printf("Introduce un numero: ");
+                scanf("%f", &num1);
+                if (num1 >= 0) {
+                    resultat = sqrt(num1);
+                    printf("Resultado: %.2f\n", resultat);
+                } else {
+                    printf("Error: No se puede calcular la arrel quadrada de un número negativo.\n");
+                }
+                break;
+            case 0: // Sortir
+                printf("Gracias por utilitzar la calculadora!\n");
+                break;
+            default:
+                printf("Opción no valida. Vuelve-lo a intentar-lo.\n");
+        }
+
+        if (opcio != 0) {
+            printf("\nPrem Enter para continuar...");
+            getchar(); // Neteja el buffer
+            getchar(); // Espera que l'usuari premi Enter
+        }
+
+    } while (opcio != 0);
+
+    return 0;
