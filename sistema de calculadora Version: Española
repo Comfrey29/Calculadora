@@ -23,7 +23,7 @@ void netejarPantalla() {
 
 // Funció per mostrar el menú
 void mostrarMenu() {
-    printf("\nCalculadora Avanzada\n");
+    printf("\nCalculadora Avanzada de linux\n");
     printf("1. Suma\n");
     printf("2. Resta\n");
     printf("3. Multiplicacion\n");
